@@ -17,6 +17,6 @@ quick install commands (copy into terminal)
 
 ```
 cd ~/bin
-git clone http://www.github.com/rodneydup/roll
+wget https://raw.githubusercontent.com/rodneydup/roll/master/roll
 chmod +x roll
 ```
