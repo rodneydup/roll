@@ -2,12 +2,12 @@
 Simple bash script for rolling any number of dice with any number of sides and adding a modifier
 
 Download the script 'roll'
-
 Put it in ~/bin
+Make it executable
 
-make it executable
+Now you can use the command in your bash terminal.
 
-Now you can type
+Syntax:
 
 roll 5d6+10
 
