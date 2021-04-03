@@ -1,0 +1,77 @@
+#! /bin/bash 
+
+# print instructions if no arguments given
+if [ $# -eq 0 ] || [ $1 == '-h' ] 
+then
+    printf "
+Error: You must provide arguments
+
+The syntax is:
+        
+Roll [#]d[sides]+[mod]
+        
+Where:
+[#] is the number of dice you want to roll
+[sides] is the number of sides of the dice you want to roll
+[mod] is a modifier to add to the result
+        
+Example:
+        
+roll 5d6+10
+
+will roll 5 6-sided dice and add 10 to the result
+        
+The modifier is optional. So,
+        
+roll 3d4
+        
+is a valid command.
+
+"
+    exit 1
+fi
+
+
+# parse the argument
+NUMDICE=$(echo $1 | sed 's/d.*//')
+
+    
+if [ $(echo $1 | grep '+') ]
+then
+    FACES=$(echo $1 | sed -e 's/.*d\(.*\)+.*/\1/')
+    MODIFIER=$(echo $1 | sed 's/.*+//')
+else
+    FACES=$(echo $1 | sed -e 's/.*d\(.*\)/\1/')
+    MODIFIER=0
+fi
+
+# real number regex to check args against
+re='^[0-9]+$'
+# check if args are real numbers
+if ! [[ $NUMDICE =~ $re ]] || ! [[ $FACES =~ $re ]] || ! [[ $MODIFIER =~ $re ]]
+then
+    printf "
+Syntax Error: 
+Type 'roll -h' to see correct syntax
+
+"
+    exit 1
+fi
+
+# Set the total to zero before rolling
+RESULT=0
+
+# do the rolls
+for i in $(eval echo "{1..$NUMDICE}")
+do
+    ROLL=$(( ( RANDOM % $FACES ) + 1 ))
+    echo "roll "$i": "$ROLL
+    let RESULT+=$ROLL
+    echo $RESULT
+done
+
+# add optional modifier
+let RESULT+=$MODIFIER
+echo "modifier:" $MODIFIER
+echo "TOTAL:" $RESULT
+
