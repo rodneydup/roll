@@ -1,24 +1,38 @@
 # roll
 Simple bash script for rolling dice in the terminal
 
+roll v1.1 features:
+- Roll arbitrary numbers of arbitrarily-sided dice
+- Add or subtract modifier to/from final result
+- Set a minimum result for each rolled die
+
 Download the script 'roll'
 Put it in your path (usually `~/bin` on Linux, `/usr/local/bin` on MacOS)
 Make it executable
 
 Now you can use the command in your bash terminal.
 
-Syntax:
+## Example Usage
 
+`roll 3d15`
+
+will roll 3 15-sided dice
+
+        
 `roll 5d6+10`
 
-to roll 5 6-sided dice and add 10 to the result.
+will roll 5 6-sided dice and add 10 to the total result
 
-`roll` can also roll impossible dice:
+`roll 7d203-11`
 
-`roll 200d79`
+will roll 7 203-sided dice and subtract 11 from the total result
+
+`roll 6d10+12 -min 6`
+
+will roll 6 10-sided dice, rounding up to 6 any individual die that results in less than 6, and then add 12 to the total result.
 
 
-Quick install commands (copy into terminal):
+## Quick install commands (copy into terminal)
 
 ### Linux
 
