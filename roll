@@ -55,6 +55,11 @@ roll 5d6+10
 will roll 5 6-sided dice and add 10 to the total result
 
 
+roll 7d203-11
+
+will roll 7 203-sided dice and subtract 11 from the total result
+
+
 roll 6d10+12 -min 6
 
 will roll 6 10-sided dice, rounding up to 6 any individual die that results in less than 6, and then add 12 to the total result.
@@ -186,18 +191,18 @@ do
     fi
     echo "roll "$i": "$ROLL $ROUNDED
     let RESULT+=$ROLL
-    echo $RESULT
+
 done
+
+echo 
 
 # add optional modifier
 if [ $MODIFIER -ne 0 ]
 then
+    echo "Rolled total:" $RESULT
     let RESULT+=$MODIFIER
-    printf '%s: %+i \n' "modifier" $MODIFIER
-fi
-if [ $TOTALROUND -gt 0 ]
-then
-    echo "(The total result has been has been rounded up by $TOTALROUND)"
+    printf '%s: %+i \n' "Modifier" $MODIFIER
 fi
 
 echo "TOTAL:" $RESULT
+
