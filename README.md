@@ -1,16 +1,16 @@
 # roll
-Simple bash script for rolling dice in the terminal
+A simple bash script for rolling dice in the terminal
 
 roll v1.1 features:
 - Roll arbitrary numbers of arbitrarily-sided dice
 - Add or subtract modifier to/from final result
 - Set a minimum result for each rolled die
 
-Download the script 'roll'
-Put it in your path (usually `~/bin` on Linux, `/usr/local/bin` on MacOS)
+Download the script 'roll'  
+Put it in your path (usually `~/bin` on Linux, `/usr/local/bin` on MacOS, ?? on Windows)  
 Make it executable
 
-Now you can use the command in your bash terminal.
+Now you can use the command in your bash-compatible terminal.
 
 ## Example Usage
 
@@ -49,3 +49,6 @@ cd /usr/local/bin
 wget https://raw.githubusercontent.com/rodneydup/roll/master/roll
 chmod +x roll
 ```
+### Windows
+
+???
