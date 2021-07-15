@@ -83,8 +83,14 @@ fi
 # parse the argument
 NUMDICE=$(echo $1 | sed 's/d.*//')
 
+# if no number of dice given, default to 1
+if [[ $NUMDICE == '' ]]
+then
+    NUMDICE=1
+fi
+
 # check for modifier
-if [ $(echo $1 | grep '+') ] # check for posotive modifier
+if [ $(echo $1 | grep '+') ] # check for positive modifier
 then
     FACES=$(echo $1 | sed -e 's/.*d\(.*\)+.*/\1/')
     MODIFIER=$(echo $1 | sed 's/.*+/0+/' | bc)
@@ -205,4 +211,3 @@ then
 fi
 
 echo "TOTAL:" $RESULT
-
