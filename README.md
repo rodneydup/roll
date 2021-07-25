@@ -12,7 +12,7 @@ Make it executable
 
 Now you can use the command in your bash-compatible terminal.
 
-![](roll.gif)
+![](roll.mp4)
 
 ## Example Usage
 
